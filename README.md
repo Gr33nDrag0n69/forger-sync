@@ -1,3 +1,5 @@
+# IMPORTANT: NOT READY FOR PRODUCTION! INITIAL RELEASE INCOMPLETE!
+
 # Forger-Sync
 
 This project is a collection of bash scripts that allow installation of an automated lisk log monitoring script that will make a forging-info & forger-status backup online every time a new block is forged by a local forging delegate.
@@ -8,33 +10,33 @@ This project is a collection of bash scripts that allow installation of an autom
   * The project base path is: `$HOME/forger-sync/`.
   * The git pull/push commands are always active.
 
-## Prepare New GitHub Project.
+## Prepare New GitHub Project
 
 ### Create new GitHub dedicated user
 
-Open GitHub [Sign-Up](https://github.com/signup) page and register a new account.
-
-Login into your GitHub account.
+* Register a new account here: [github.com/signup](https://github.com/signup)
+* Login into your GitHub account.
 
 ### Create GitHub user token
 
-Go to the new Personal Access Token [page](https://github.com/settings/tokens/new)
-
-Note: forger-sync
-Expiration: No Expiration
-Scope: repo
-
-Save your new token safely to a password manager.
+* Create a new Personal Access Token here: [github.com/settings/tokens/new](https://github.com/settings/tokens/new)
+  * Note: forger-sync
+  * Expiration: No Expiration
+  * Scope: repo
+* Save your new token safely to a password manager.
 
 ### Create your own private project copy
 
-Create a new private repository [here]()
+* Create a new private repository here: [github.com/new](https://github.com/new)
+  * Repository name: forger-sync
+  * Visibility: private
+
+### Copy source code to new private repository
 
 Using any linux server, initialize your new private project from my public version.
 
 ```bash
-# IMPORTANT: EDIT THE FOLLOWING VALUES TO MATCH YOUR GIT PROJECT URL
-
+# IMPORTANT: EDIT THE FOLLOWING VALUE TO MATCH YOUR GIT PROJECT URL
 GIT_URL="https://github.com/GitHubUsername/forger-sync.git"
 
 git clone --bare https://github.com/Gr33nDrag0n69/forger-sync.git
@@ -48,28 +50,41 @@ rm -rf forger-sync.git
 
 ```bash
 # IMPORTANT: EDIT THE FOLLOWING VALUES TO MATCH YOUR GIT TOKEN & GIT PROJECT URL
-
 GIT_TOKEN='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'
 GIT_URL="https://${GIT_TOKEN}@github.com/GitHubUsername/forger-sync.git"
 
 # Clone project & make all bash scripts executable
-
 cd "$HOME"
 git clone "$GIT_URL"
 chmod 0700 "$HOME/forger-sync/*.sh"
 
 # Configure server git name & mail that will appear in the git commits made from this given server.
-
 cd "$HOME/forger-sync/"
 git config user.name "$HOSTNAME"
 git config user.email "forger-sync@$HOSTNAME"
 
 # Test Backup is working as expected.
+~/forger-sync/backup.sh
 
 # Start Log Monitor
+~/forger-sync/start-logmonitor.sh
 
 # Install Keep Alive
+~/forger-sync/install-keepalive.sh
+```
 
+## Normal Usage
+
+```bash
+# Check internal log file.
+~/forger-sync/show-logs.sh
+
+# Preferred Method: Import forging-info backup
+# This method will allow to start forging using the normal method.
+~/forger-sync/import-backup.sh
+
+# Alternate Method: Start forging using forger:status backup (0.75 LSK Fee on 1st block)
+~/forger-sync/enable-forging.sh
 
 ```
 
