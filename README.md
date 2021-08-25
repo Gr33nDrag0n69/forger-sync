@@ -9,6 +9,7 @@ This project is a collection of bash scripts that allow installation of an autom
 * There is currently no config file in the project and some things are hard coded.
   * The project base path is: `$HOME/forger-sync/`.
   * The git pull/push commands are always active.
+* This code require that the target lisk-core node run with `info` log level.
 
 ## Prepare New GitHub Project
 
@@ -92,41 +93,42 @@ git config user.email "forger-sync@$HOSTNAME"
 
 ### backup.sh
 
-TODO
+Create a new backup and push it on GitHub.
 
 ### enable-forging.sh
 
-TODO
+Enable forging using forger:status values backup.
 
-### `import-backup.sh`
+### import-backup.sh
 
-TODO
+Restore local forging-info backup to local database.
 
-### `keepalive.sh`
+### show-log.sh
 
-TODO
+Show the content of `forger-sync/logs/logmonitor.log`.
 
-### `logmonitor.sh`
+### logmonitor.sh
 
-TODO
+Monitor `$HOME/.lisk/lisk-core/logs/lisk.log` for `Forged new block`.
+When a new block is forged, execute `forger-sync/backup.sh`
 
-### `show-log.sh`
+### start-logmonitor.sh
 
-TODO
+Start `forger-sync/logmonitor.sh` as a background process.
 
-### `start-logmonitor.sh`
+### stop-logmonitor.sh
 
-TODO
+Kill all running instance of `forger-sync/logmonitor.sh` background process
 
-### `stop-logmonitor.sh`
+### keepalive.sh
 
-TODO
+If `forger-sync/logmonitor.sh` background process isn't currently running, execute `forger-sync/start-logmonitor.sh`.
 
-### `install-keepalive.sh`
+### install-keepalive.sh
 
 Add crontab job to execute `keepalive.sh` once each minute.
 
-### `uninstall-keepalive.sh`
+### uninstall-keepalive.sh
 
 Remove crontab job.
 
