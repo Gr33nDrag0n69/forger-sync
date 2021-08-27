@@ -107,7 +107,10 @@ cd "$HOME"
 ~/forger-sync/enable-forging.sh
 ```
 
-## Updating private repository code base from public version. (To install updates & fixes without losing data)
+## Codebase Update
+
+Execute these commands to install updates & fixes without losing data.
+It will upgrade codebase from latest public version into your private repository. 
 
 Using any linux server, update code base of your private project.
 
