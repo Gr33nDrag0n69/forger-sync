@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Gr33nDrag0n 2021-08-02
+# Gr33nDrag0n 2021-08-26
 
-if [ $( ps -ef | grep "lisk-core start" | grep -v grep ) -ge 1 ]
+if [ $( ps -ef | grep "lisk-core start" | grep -v grep | wc -l ) -ge 1 ]
 then
     echo "The lisk-core process is running. Stop it and retry."
     exit 1
