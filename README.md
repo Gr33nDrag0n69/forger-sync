@@ -39,8 +39,7 @@ The toolset also contain easy forger.db restore and custom forging enable script
 ### Copy source code to new private repository
 
 Using any linux server, initialize your new private project with a copy of my public project.
-Note 1: Not using a fork of my project allow you to use it with a free private repository on GitHub.
-Note 2: The following code will need to be run again every time you want to update codebase of your private project without affecting your data backups.
+Note: Not using a fork of my project allow you to use it with a free private repository on GitHub.
 
 ```bash
 # IMPORTANT: EDIT THE FOLLOWING VALUE TO MATCH YOUR GIT PROJECT URL
@@ -106,6 +105,30 @@ cd "$HOME"
 
 # Alternate Method: Start forging using forger:status backup (0.75 LSK Fee on 1st block)
 ~/forger-sync/enable-forging.sh
+```
+
+## Updating private repository code base from public version. (To install updates & fixes without losing data)
+
+Using any linux server, update code base of your private project.
+
+```bash
+# IMPORTANT: EDIT THE FOLLOWING VALUE TO MATCH YOUR GIT PROJECT URL
+GIT_URL="https://github.com/GitHubUsername/forger-sync.git"
+
+git clone --bare https://github.com/Gr33nDrag0n69/forger-sync.git
+cd forger-sync.git
+git push --mirror "$GIT_URL"
+cd ..
+rm -rf forger-sync.git
+```
+
+Now update local copy on each lisk-core server running the code.
+
+```bash
+cd "$HOME/forger-sync/"
+git pull --rebase
+chmod 0700 $HOME/forger-sync/*.sh
+cd "$HOME"
 ```
 
 ## Script List
