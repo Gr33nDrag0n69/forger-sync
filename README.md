@@ -8,6 +8,22 @@ Using GitHub have the advantage of keeping history of all change so you'll be ab
 
 The toolset also contain easy forger.db restore and custom forging enable script.
 
+- [Forger-Sync](#forger-sync)
+  - [Warning(s)](#warnings)
+  - [Prepare New GitHub Project](#prepare-new-github-project)
+    - [Create new GitHub dedicated user](#create-new-github-dedicated-user)
+    - [Create GitHub user token](#create-github-user-token)
+    - [Create your own private project copy](#create-your-own-private-project-copy)
+    - [Copy source code to new private repository](#copy-source-code-to-new-private-repository)
+  - [Install GitHub Project on Lisk server(s).](#install-github-project-on-lisk-servers)
+  - [First Start](#first-start)
+  - [Normal Usage](#normal-usage)
+    - [Check history of backups with file modification](#check-history-of-backups-with-file-modification)
+    - [Bash Scripts](#bash-scripts)
+  - [Codebase Update](#codebase-update)
+  - [Script List](#script-list)
+  - [Soon TM List](#soon-tm-list)
+
 ## Warning(s)
 
 * There is currently no config file in the project and some things are hard coded.
