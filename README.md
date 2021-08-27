@@ -126,39 +126,37 @@ cd "$HOME"
 
 ## Codebase Update
 
-WARNING: This section still contain some bugs! It will be improved.
-WARNING: You will currently lose all existing backup files in the project. (They will stay in the commits history.)
+WARNING: You will lose all existing backup files in the project.
 
 Execute these commands to install updates & fixes.
-It will upgrade codebase from latest public version into your private repository. 
+It will reset your private repository with latest public version. 
 
-Using any linux server, update code base of your private project.
+* Using any linux server, update code base of your private project.
+    ```bash
+    # IMPORTANT: EDIT THE FOLLOWING VALUE TO MATCH YOUR GIT PROJECT URL
+    GIT_URL="https://github.com/GitHubUsername/forger-sync.git"
 
-```bash
-# IMPORTANT: EDIT THE FOLLOWING VALUE TO MATCH YOUR GIT PROJECT URL
-GIT_URL="https://github.com/GitHubUsername/forger-sync.git"
+    git clone --bare https://github.com/Gr33nDrag0n69/forger-sync.git
+    cd forger-sync.git
+    git push --mirror "$GIT_URL"
 
-git clone --bare https://github.com/Gr33nDrag0n69/forger-sync.git
-cd forger-sync.git
-git push --mirror "$GIT_URL"
+    cd ..
+    rm -rf forger-sync.git
+    ```
 
-cd ..
-rm -rf forger-sync.git
-```
+* On each lisk-core server
+  * Uninstall old copy.
+    ```bash
+    # Uninstall Keep Alive
+    ~/forger-sync/uninstall-keepalive.sh
 
-Now update local copy on each lisk-core server running the code.
+    # Stop Log Monitor
+    ~/forger-sync/stop-logmonitor.sh
 
-```bash
-cd "$HOME/forger-sync/"
-git pull --rebase
-cd "$HOME"
-```
-
-Known bug. In some case it's needed to re-run this command.
-
-```bash
-chmod 0700 $HOME/forger-sync/*.sh
-```
+    # Delete files
+    rm -rf "$HOME/forger-sync/"
+    ```
+  * Re-install new version using [Install GitHub Project on Lisk server(s).](#install-github-project-on-lisk-servers) & [First Start](#first-start) sections.
 
 ## Script List
 
