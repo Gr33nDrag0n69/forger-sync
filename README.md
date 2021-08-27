@@ -96,7 +96,7 @@ cd "$HOME"
 
 ```bash
 # Check internal log file.
-~/forger-sync/show-logs.sh
+~/forger-sync/show-log.sh
 
 # Preferred Method: Import forging-info backup
 # This method will allow to start forging using the normal method.
