@@ -64,7 +64,7 @@ GIT_URL="https://${GIT_TOKEN}@github.com/GitHubUsername/forger-sync.git"
 cd "$HOME"
 git clone "$GIT_URL"
 
- # Make all bash scripts executable
+# Make all bash scripts executable
 chmod 0700 $HOME/forger-sync/*.sh
 
 # Configure server git name & mail that will appear in the git commits made from this given server.
