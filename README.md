@@ -126,7 +126,10 @@ cd "$HOME"
 
 ## Codebase Update
 
-Execute these commands to install updates & fixes without losing data.
+WARNING: This section still contain some bugs! It will be improved.
+WARNING: You will currently lose all existing backup files in the project. (They will stay in the commits history.)
+
+Execute these commands to install updates & fixes.
 It will upgrade codebase from latest public version into your private repository. 
 
 Using any linux server, update code base of your private project.
@@ -148,8 +151,13 @@ Now update local copy on each lisk-core server running the code.
 ```bash
 cd "$HOME/forger-sync/"
 git pull --rebase
-chmod 0700 $HOME/forger-sync/*.sh
 cd "$HOME"
+```
+
+Known bug. In some case it's needed to re-run this command.
+
+```bash
+chmod 0700 $HOME/forger-sync/*.sh
 ```
 
 ## Script List
