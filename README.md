@@ -64,6 +64,7 @@ GIT_URL="https://github.com/GitHubUsername/forger-sync.git"
 git clone --bare https://github.com/Gr33nDrag0n69/forger-sync.git
 cd forger-sync.git
 git push --mirror "$GIT_URL"
+
 cd ..
 rm -rf forger-sync.git
 ```
@@ -137,6 +138,7 @@ GIT_URL="https://github.com/GitHubUsername/forger-sync.git"
 git clone --bare https://github.com/Gr33nDrag0n69/forger-sync.git
 cd forger-sync.git
 git push --mirror "$GIT_URL"
+
 cd ..
 rm -rf forger-sync.git
 ```
