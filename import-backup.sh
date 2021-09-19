@@ -24,4 +24,4 @@ done
 BackupFilePath="$HOME/forger-sync/backup/$Directory/forger.db.tar.gz"
 
 echo "Importing: $BackupFilePath"
-"$HOME/lisk-core/bin/lisk-core" forger-info:import "$BackupFilePath"
+"$HOME/lisk-core/bin/lisk-core" forger-info:import "$BackupFilePath" --force
